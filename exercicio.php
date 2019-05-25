@@ -1,11 +1,11 @@
 <?php
 
 $n = 7;
-$arr = array(3, 1, 2, 2, 4);
+#$arr = array(3, 1, 2, 2, 4,3,3,3);
 
 
 #$valores = array(10,8,8,5,1,1,2,2,2,7,3);
-$valores = array(7,7,7,7,5,5,5,0,3,4,7);
+$valores = array(3, 1, 2, 2, 4);
 
 /*
 asort($valores);
@@ -19,46 +19,42 @@ $contagem = array_count_values($valores);
 $naoRepetidos = [];
 $repetidos = [];
 $ordenacao=[];
-
+echo "numero  |  vezes que repete<br>";
 foreach($contagem AS $numero => $vezes) {
-    echo "$numero - $vezes<br />";
     array_push($ordenacao, $vezes);
+    arsort($ordenacao);
     if($vezes <=1){
         array_push($naoRepetidos,$numero);
         asort($naoRepetidos);
 
     }else{
-        
-        for ($i = 1; $i <= $vezes; $i++){ 
-            
+            # i=10     i>=10   i --
+        for ($i = $vezes; $i >=1; $i--){ 
+            echo "$numero ----------- $vezes<br />";
             array_push($repetidos, $numero);
-            asort($repetidos);
+            
             
             
         }
     }
     
+    
 }
-echo "ordenacao: ";
-arsort($ordenacao);
-var_dump($ordenacao);
 
 $array_final = array();
-
-
-
-print("Nao repetidos<br>");
-print_r($naoRepetidos);
-print("<br><br>Repetidos<br>");
-print_r($repetidos);
-
-
-foreach ($naoRepetidos as $chave=>$valor ){
-    array_push($array_final, $valor);
-}
-foreach($repetidos as $chave =>$valor){
-    array_push($array_final, $valor);
+foreach ($naoRepetidos  as $chave){
+    echo "<br>NaoRepetidos ".$chave;
+    array_push($array_final, $chave);
 }
 
-print("<br><br>Array final<br>");
-print_r($array_final);
+foreach ($repetidos As  $chave ){
+    echo "<br>Repetidos ".$chave;
+    array_push($array_final, $chave);
+}
+#array(8, 4, 4, 1, 1, 1, 5, 5, 5, 5)
+
+    echo" Array Final [";
+foreach($array_final as $chave){
+     echo " $chave, ";
+}
+echo "  ]";
