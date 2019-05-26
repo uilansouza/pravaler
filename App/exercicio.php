@@ -14,21 +14,18 @@ $contagem = array_count_values($valores);
 $naoRepetidos = [];
 $repetidos = [];
 $ordenacao=[];
+
 foreach($contagem AS $numero => $vezes) {
     array_push($ordenacao, $vezes);
     arsort($ordenacao);
     if($vezes <=1){
         array_push($naoRepetidos,$numero);
         asort($naoRepetidos);
-
-    }else{
-              
+    }else{              
         for ($i = $vezes; $i >=1; $i--){ 
            array_push($repetidos, $numero);
         }
-    }
-    
-    
+    }   
 }
 
 $array_final = array();
