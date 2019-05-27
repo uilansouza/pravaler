@@ -10,16 +10,10 @@ function vogal(){
     $a= strlen($vogais);
     for ($i=0; $i<count($procurar); $i++){    
         for($j=$posicao; $j <strlen($vogais); $j++){   //    PROCURAR    VOGAL
-             // echo "<br> I[$i]  J[$j] <br>"; //   
-                                             //    
-            echo "J - $j";
-            echo "$procurar[$i] - $vogais[$j] <br>";       //      a           a        
+             
             if($procurar[$i] == $vogais[$j]){ 
                 $cont++;                 //2
                 $posicao = $j;
-                echo "<br>cont $cont<br>";
-                echo "$procurar[$i] - $vogais[$j] <br>";
-                
                 continue;
             }
             $pos = strpos($vogais, $procurar[$i]);
